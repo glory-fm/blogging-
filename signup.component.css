@@ -1,0 +1,30 @@
+.background-left {
+    background-color:black;
+    background-image: url('/assets/remote-work-report-banner.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+
+}
+
+.background-right {
+    background-color:rgb(66, 96, 179);
+
+}
+.card {
+    background-color:transparent;
+        color: #fff;
+}
+.text-muted {
+    color: white !important;
+
+}
+
+.btn[type= sumbit]{
+    border-radius: 50px;
+}
+h1 {
+    color:rgb(235, 231, 240);
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+
+}

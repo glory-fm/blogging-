@@ -1,0 +1,99 @@
+<div class="row background">
+    <div class="col-sm-6 background-left p-5 pb-5">
+        <br>
+        <h1> &nbsp; &nbsp; DON'T JUST THINK!
+             BLOG IT!!</h1>
+    </div>
+    <div class="col-sm-6 background-right p-5 pb-5">
+    <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+            <div class="card text-blank border-0">
+                <div class="card-body">
+                    <div class="card-title text-center">
+                        <h5>Sign Up for Free</h5>
+                    </div>
+
+                    <br>
+
+                    <div class="card-text">
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+
+                            <div class="form-group row">
+                                <div class="form-group col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Enter your first name here"
+                                    [formControl]="myForm.controls['firstName']">
+                                </div>
+
+                                <div class="form-group col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Enter your last name here" 
+                                    [formControl]="myForm.controls['lastName']">
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="alert alert-danger" *ngIf="(!myForm.controls['firstName'].valid) &&
+                            (myForm.controls['firstName'].touched) || (!myForm.controls['lastName'].valid) && 
+                            (myForm.controls['lastName'].touched)">
+                                First and Last Name are Required
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" placeholder="Enter your Email here" class="form-control" 
+                                [formControl]="myForm.controls['email']">
+                                <small class="form-text text-muted">
+                                    We'll never share your email with anyone else
+                                </small>
+                            </div>
+
+                            <br>
+
+                            <div class="alert alert-danger" *ngIf="(!myForm.controls['email'].valid) 
+                            && (myForm.controls['email'].touched) ">
+                                A Valid Email is Required
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Enter your password here" 
+                                [formControl]="myForm.controls['password']">
+                            </div>
+
+                            <br>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm your password here" 
+                                [formControl]="myForm.controls['confirmPassword']">
+                            </div>
+
+                            <br>
+
+                            <div class="alert alert-danger" *ngIf="(!myForm.controls['password'].valid) 
+                            && (myForm.controls['password'].touched) ">
+                                Password should be atleast 8 Characters long
+                            </div>
+
+                            
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-warning btn-block" [disabled]="!myForm.valid">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                        {{myForm.controls['confirmPassword'].errors | json}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success" *ngIf="message.length > 0">
+                {{message}}
+            </div>
+
+            <div class="alert alert-danger" *ngIf="userError">
+                {{userError.message}}
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
